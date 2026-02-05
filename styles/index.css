@@ -1,324 +1,299 @@
-
+/* =========================================
+   1. Global & Typography
+   ========================================= */
 body {
-    font-family:'Courier New', Courier,;
-    /* font-weight: 700; */
-    color: #0c0c0c;
+    font-family: 'Inter', sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial;
+    color: #333;
+    background-color: #fff;
+    margin: 0;
+    overflow-x: hidden;
 }
 
 h1, h2, h3, h4, h5 {
-    color: #635D55;
-    font-weight: bold;
+    color: #555;
+    font-weight: 700;
 }
 
+a { text-decoration: none; }
+
+/* Responsive Font Sizes */
+@media (max-width: 768px) {
+    h1 { font-size: 2.2rem !important; }
+    h2 { font-size: 1.8rem !important; }
+    h3 { font-size: 1.4rem !important; }
+}
+
+/* =========================================
+   2. Layout Components
+   ========================================= */
+
+/* Top Bar */
 .top-bar {
-    background-color: #f5f5f4;
-    padding: 1rem 0;
-    /* border-bottom: px solid rgba(0, 0, 0, 0.1); */
-    font-size: 0.9rem;
-}
-
-.top-bar a{
-    color: #050505; 
+    background-color: #f6f1eb;
+    padding: 0.8rem 0;
+    font-size: 0.85rem;
+    position: relative;
+   
 }
 
 .top-bar .page-title {
-    position: absolute;
-    width: 100%;
-    left: 0;
-    top: 4%;
     font-weight: 700;
+    line-height: 1;
+}
+
+.back-link {
+    position: absolute;
+    left: 20px;
+    top: 50%;
     transform: translateY(-50%);
-   
-}
-
-/* =========================================
-   3. Header / Navigation
-   ========================================= */
-.site-header {
-    background-color: #efd089;
-    padding: 1.5rem 0;
-    
-}
-
-.site-header .nav-item {
-    color: #635D55;
-    margin-left: 1.4rem;
-    text-decoration: none;
-}
-
-.site-header .nav-item.active {
+    color: #333;
     text-decoration: underline;
-    text-underline-offset: 4px;
-}
-img.brand-logo{
-    margin-left: 3rem;
-}
-nav.navigation{
-    margin-right: 8rem;
-}
-/* =========================================
-   4. Hero Section
-   ========================================= */
-.hero {
-    background-color: #efd089;
-    padding: 4rem 0 6rem 0;
 }
 
+/* Header & Nav */
+.site-header {
+    background-color: #F8ECC2;
+    padding: 2rem 8rem 0rem 8rem;
+}
+
+.navigation {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-item {
+    color: #666;
+    font-weight: 500;
+    position: relative;
+    padding-bottom: 5px;
+    transition: color 0.3s;
+}
+
+.nav-item:hover { color: #000; }
+
+/* Sliding Underline Effect */
+.nav-item::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #555;
+    transition: width 0.3s ease-in-out;
+}
+/* .nav-item:hover::after,
+.nav-item.active::after {
+    width: 100%;
+} */
+
+/* =========================================
+   3. Buttons
+   ========================================= */
+.btn {
+    border-radius: 50px;
+    padding: 0.6rem 2.5rem;
+    font-weight: 600;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.btn-blue { background-color: #6DAAB3; color: #272424; }
+.btn-blue:hover { background-color: #58929b; color: #fff; }
+
+.btn-white { background-color: #bcc1c3; color: #272727; }
+.btn-white:hover { background-color: #dbe8ec; color: #333; }
+
+.btn-outline { background-color: #DFF5E8; color: #555; }
+.btn-outline:hover { background-color: #ccebd9; }
+
+.btn-yellow { background-color: #F8ECC2; color: #555; }
+.btn-yellow:hover { background-color: #eddca8; }
+
+/* =========================================
+   4. Sections
+   ========================================= */
+
+/* Hero */
+.hero {
+    background-color: #F8ECC2;
+    padding: 2rem 0 6rem 0;
+}
 .hero p.lead {
     max-width: 600px;
-    margin: 0 auto 2rem auto;
+    margin: 0 auto 2.5rem auto;
     color: #777;
-    font-size: 1.1rem;
+    font-size: 1rem;
 }
-
-.hero .hero-buttons {
+.hero-buttons {
     display: flex;
     justify-content: center;
-    gap: 1rem;
-   
-}
-/* .hero .hero-buttons:active{
-    box-shadow: #777;
-} */
-/* =========================================
-   5. Buttons
-   ========================================= */
-/* Blue Button */
-.btn-blue {
-    background-color: #3c8393;
-    color: #3a3838;
-    border-radius: 50px;
-    padding: 0.5rem 2rem;
-    /* border: 1px solid #49808d; */
-    transition: background-color 0.3s;
+    gap: 20px;
+    flex-wrap: wrap;
 }
 
-.btn-blue:hover {
-    background-color: #7ab3c0; /* Darker Blue */
-    color: #ffffff;
-}
-
-/* White Button */
-.btn-white {
-    background-color: #d3dab3;
-    color: #3d3737;
-    border-radius: 50px;
-    padding: 0.5rem 2rem;
-    /* border: 1px solid #ffffff; */
-    transition: background-color 0.3s;
-}
-
-.btn-white:hover {
-    background-color: #ddd7d7;
-}
-
-/* Yellow Button */
-.btn-yellow {
-    background-color: #FCEFB4;
-    color: #5a5a5a;
-    border-radius: 50px;
-    padding: 0.5rem 3rem;
-    border: none;
-    transition: background-color 0.3s;
-}
-/* 
-.btn-yellow:hover {
-    background-color: #e6d89b; /* Darker Yellow */
-
- 
-
-/* Outline Button */
-/* .btn-outline {
-    background-color: #ffffff;
-    color: #5a5a5a;
-    border: 1px solid #ddd;
-    border-radius: 50px;
-    padding: 0.5rem 3rem;
-    box-shadow: 10px 20px 5px rgba(232, 91, 91, 0.05);
-    transition: background-color 0.3s;
-} */
-
-/* .btn-outline:hover {
-    background-color: #f8f8f8;
-} */
-
-/* =========================================
-   6. Gallery Section
-   ========================================= */
+/* Gallery */
 .gallery {
-    padding: 4rem 0;
-    background-color: #ffffff;
+    padding: 2rem 8rem ;
+    background-color: #fff;
+
 }
+/* Aligns gallery images with the text container */
+.gallery .container-fluid {
+    max-width: 1320px;
+    margin: 0 auto;
+    /* padding: 0 0.75rem; */
+}
+/* Responsive constraints for container fluid to match standard container */
+@media (max-width: 1400px) { .gallery .container-fluid { max-width: 1140px; } }
+@media (max-width: 1200px) { .gallery .container-fluid { max-width: 960px; } }
+@media (max-width: 992px) { .gallery .container-fluid { max-width: 720px; } }
+@media (max-width: 768px) { .gallery .container-fluid { max-width: 540px; } }
 
 .gallery .section-desc {
-    max-width: 600px;
+    max-width: 500px;
     margin: 0 auto;
-    color: #777;
+    color: #999;
 }
-
-.gallery .gallery-item {
-    height: 300px;
-    background-color: #eee;
+.gallery-item {
+    height: 280px;
     overflow: hidden;
 }
-
-.gallery .gallery-item img {
+.gallery-item img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: transform 0.5s;
 }
+.gallery-item:hover img { transform: scale(1.05); }
 
-/* =========================================
-   7. Promo Section (Beige Text Area)
-   ========================================= */
-.promo {
-    background-color: #F2E8C9;
-    padding: 5rem 0;
+/* Promo */
+.gallery .container2{
+    padding: 3rem 0rem;
+    background-color: #f7c788dc;
 }
-
-.promo h3 {
-    margin-bottom: 1.5rem;
-}
-
-.promo p {
-    max-width: 800px;
-    margin: 0 auto 2rem auto;
-    color: #777;
-}
-
-/* =========================================
-   8. Features Section (Icons)
-   ========================================= */
+/* Features */
 .features {
-    padding: 5rem 0;
-    background-color: #ffffff;
+    padding: 2rem 12rem 5rem 12rem;
+    background-color: #fff;
 }
-
-.features .feature-card {
-    background-color: #f9f9f9;
-    padding: 2rem;
-    height: 100%;
+.feature-card {
+   background-color: #f9e8b0dd;
+    padding: 3rem 1rem;
+    border-radius: 5px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border-radius: 4px;
+    height: 100%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
-.features .feature-card .icon-img {
-    height: 50px;
-    width: auto;
-    margin-bottom: 1rem;
+.feature-card:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
 }
+.feature-card .icon-img { height: 40px; margin-bottom: 1.5rem; opacity: 0.6; }
+.feature-card h5 { color: #777; margin: 0; font-weight: 500; }
 
-/* =========================================
-   9. Blog Section (Green Background)
-   ========================================= */
+/* Blog */
 .blog {
     background-color: #E0FDF0;
-    padding: 5rem 0;
+    padding: 6rem 0;
 }
-
-.blog .blog-card {
-    background-color: #F5EBCF;
-    padding: 1rem;
+.blog-card {
+    background-color: #F8ECC2;
+    padding: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
     height: 100%;
-    text-align: left;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-    border-radius: 4px;
+    transition: transform 0.3s;
 }
-
-.blog .blog-card img {
+.blog-card:hover { transform: translateY(-5px); }
+.blog-card img {
     width: 100%;
     height: 200px;
     object-fit: cover;
     margin-bottom: 1rem;
-    background-color: #ddd;
 }
+.card-content .date { font-size: 0.75rem; color: #888; display: block; margin-bottom: 0.5rem; }
+.card-content hr { border-color: rgba(0,0,0,0.1); margin: 0.5rem 0 1rem 0; }
+.card-content p { font-size: 0.9rem; color: #666; line-height: 1.5; }
 
-.blog .blog-card .card-content .date {
-    font-size: 0.85rem;
-    color: #888;
-    display: block;
-    margin-bottom: 0.5rem;
-}
-
-.blog .blog-card .card-content p {
-    color: #666;
-    font-size: 0.95rem;
-    line-height: 1.4;
-    margin-bottom: 0;
-}
-
-/* =========================================
-   10. Newsletter Section
-   ========================================= */
+/* Newsletter */
 .newsletter {
-    background-color: #ffffff;
     padding: 5rem 0;
+    background-color: #fff;
 }
-
-.newsletter .newsletter-box {
+.newsletter-box {
     background-color: #FAF5EA;
     padding: 3rem;
     border-radius: 8px;
     text-align: center;
     border: 1px solid #eee;
 }
-
-.newsletter .newsletter-box form {
+.newsletter-box p { color: #888; margin-bottom: 2rem; }
+.newsletter-box form {
     display: flex;
     justify-content: center;
-    gap: 10px;
     max-width: 500px;
-    margin: 2rem auto 0 auto;
+    margin: 0 auto;
+    gap: 10px;
+}
+.newsletter-box input {
+    border-radius: 4px;
+    border: 1px solid #ced4da;
+    padding: 0.7rem 1rem;
+    flex-grow: 1;
 }
 
-/* =========================================
-   11. Footer
-   ========================================= */
+/* Footer */
 .site-footer {
-    background-color: #F5E8C7;
-    padding: 4rem 0 2rem 0;
+    background-color: #F8ECC2;
+    padding: 5rem 0 2rem 0;
 }
-
-.site-footer .footer-desc {
+.footer-desc {
     max-width: 500px;
     margin: 0 auto 2rem auto;
-    color: #777;
+    color: #666;
+    font-size: 0.9rem;
+    line-height: 1.6;
 }
-
-.site-footer .social-links {
-    margin-bottom: 3rem;
-}
-
-.site-footer .social-links img {
-    height: 20px;
-    width: auto;
-    margin: 0 10px;
-    opacity: 0.7;
-    transition: opacity 0.2s;
-}
-
-.site-footer .social-links img:hover {
-    opacity: 1;
-}
-
-.site-footer .footer-bottom {
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
-    padding-top: 1.5rem;
+.social-links { margin-bottom: 4rem; }
+.social-links a { margin: 0 10px; }
+.social-links img { height: 18px; opacity: 0.6; }
+.footer-bottom {
+    border-top: 1px solid rgba(0,0,0,0.05);
+    padding-top: 2rem;
     display: flex;
     justify-content: space-between;
+    font-size: 0.75rem;
     color: #888;
-    font-size: 0.85rem;
 }
+.footer-bottom .links a { color: #888; margin-left: 20px; }
 
-.site-footer .footer-bottom .links a {
-    color: #888;
-    text-decoration: none;
-    margin-left: 1rem;
-}
 
-.site-footer .footer-bottom .links a:hover {
-    text-decoration: underline;
+/* =========================================
+   5. Mobile Override (Responsive Adjustments)
+   ========================================= */
+@media (max-width: 768px) {
+    /* Reduce padding on mobile */
+    .hero, .promo, .features, .blog, .newsletter, .gallery, .site-footer {
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+    }
+    
+    /* Stack footer links */
+    .footer-bottom {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+    
+    /* Adjust Gallery height for mobile */
+    .gallery-item { height: 220px; }
+    
+    /* Stack Newsletter input/button on very small screens */
+    .newsletter-box { padding: 2rem 1rem; }
+    .newsletter-box form { flex-direction: column; width: 100%; }
+    .newsletter-box input { width: 100%; }
+    .newsletter-box .btn-yellow { width: 100%; }
 }
